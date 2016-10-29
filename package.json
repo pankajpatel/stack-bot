@@ -1,0 +1,25 @@
+{
+  "name": "stack-bot",
+  "version": "0.1.0",
+  "description": "Bot for StackOverflow",
+  "main": "index.js",
+  "scripts": {
+    "go": "phantomjs index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pankajpatel/stack-bot.git"
+  },
+  "keywords": [
+    "stackoverflow",
+    "bot",
+    "phantomjs"
+  ],
+  "author": "Pankaj Patel <patel.pankaj@live.in>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pankajpatel/stack-bot/issues"
+  },
+  "homepage": "https://github.com/pankajpatel/stack-bot#readme"
+}
