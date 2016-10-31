@@ -4,7 +4,7 @@
   "description": "Bot for StackOverflow",
   "main": "index.js",
   "scripts": {
-    "go": "phantomjs index.js",
+    "go": "phantomjs phantomTask.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/pankajpatel/stack-bot/issues"
   },
-  "homepage": "https://github.com/pankajpatel/stack-bot#readme"
+  "homepage": "https://github.com/pankajpatel/stack-bot#readme",
+  "dependencies": {
+    "hapi": "^15.2.0",
+    "inert": "^4.0.2",
+    "vision": "^4.1.0"
+  }
 }
