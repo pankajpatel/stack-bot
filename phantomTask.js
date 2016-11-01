@@ -1,4 +1,4 @@
-var email, password, file;
+var email, password, file, timeout;
 var system = require('system');
 var fs = require('fs');
 var page = require('webpage').create();
@@ -9,7 +9,9 @@ if (system.args.length === 1) {
 } else {
   email = system.args[1]
   password = system.args[2]
-  file = system.args[3] || "__op.html";
+  file = system.args[3] !== '' ? system.args[3] : "__op.html";
+  timeout = parseInt(system.args[4]);
+  timeout = isNaN(timeout) ? 30 : timeout;
 }
 
 page.open(config.url, function (status) {
@@ -29,6 +31,6 @@ page.open(config.url, function (status) {
       }
       console.log('Exiting Now')
       phantom.exit();
-    }, 30*1000);
+    }, timeout*1000);
   });
 });

@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/pankajpatel/stack-bot#readme",
   "dependencies": {
+    "boom": "^4.2.0",
     "hapi": "^15.2.0",
     "inert": "^4.0.2",
     "node-schedule": "^1.2.0",
