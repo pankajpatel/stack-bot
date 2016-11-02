@@ -1,6 +1,9 @@
 const Hapi = require('hapi');
 var spawn = require('child_process').spawn;
 var Boom = require('boom');
+const Firebase = require('firebase');
+
+var myFirebaseRef = new Firebase("https://so-bot.firebaseio.com/");
 
 // Create a server with a host and port
 const server = new Hapi.Server();
@@ -14,6 +17,7 @@ server.connection({
   }
 });
 
+//Register Plugins
 server.register(require('inert'), function(err){
   if (err) {
     throw err;
@@ -21,33 +25,28 @@ server.register(require('inert'), function(err){
 })
 
 // Add the route
-server.route({
+server.route([{
   method: 'GET',
   path:'/',
   handler: function (request, reply) {
     var x = (new Date()).getTime();
     return reply('PhantomBot!').header('x-response-time', (new Date()).getTime() - x);
   }
-});
-server.route({
+},{
   method: 'GET',
   path:'/hello',
   handler: function (request, reply) {
     var x = (new Date()).getTime();
     return reply('hello world').header('x-response-time', (new Date()).getTime() - x)
   }
-});
-
-server.route({
+},{
   method: 'GET',
   path:'/op',
   handler: function (request, reply) {
     var x = (new Date()).getTime();
     return reply.file('./__op.html').header('x-response-time', (new Date()).getTime() - x)
   }
-});
-
-server.route({
+},{
   method: 'GET',
   path:'/do',
   handler: function (request, reply) {
@@ -97,7 +96,7 @@ server.route({
       });
     }
   }
-});
+}]);
 
 // Start the server
 server.start((err) => {
