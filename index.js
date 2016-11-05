@@ -2,6 +2,8 @@ const Hapi = require('hapi');
 var spawn = require('child_process').spawn;
 var Boom = require('boom');
 const Firebase = require('firebase');
+var Base64 = require('js-base64').Base64;
+
 
 var myFirebaseRef = new Firebase("https://so-bot.firebaseio.com/");
 
@@ -61,6 +63,8 @@ server.route([{
         data.push({
           time: timeReq
         })
+        var ref = myFirebaseRef.child("operation");
+        ref.push({data: Base64.encode(data), started: x, cpmpleted: (new Date()).getTime(), precessedIn: timeReq});
         reply(data).header('x-response-time', timeReq)
       }
     }
