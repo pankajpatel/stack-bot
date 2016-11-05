@@ -3,6 +3,7 @@ var spawn = require('child_process').spawn;
 var Boom = require('boom');
 var Base64 = require('js-base64').Base64;
 var firebase = require("firebase");
+var ref, db;
 
 // Create a server with a host and port
 const server = new Hapi.Server();
@@ -61,19 +62,6 @@ server.route([{
         data.push({
           time: timeReq
         })
-        // Initialize the app with a service account, granting admin privileges
-        firebase.initializeApp({
-          serviceAccount: JSON.parse(process.env.SERVICE_ACCOUNT),
-          databaseURL: "https://so-bot.firebaseio.com"
-        });
-
-        // As an admin, the app has access to read and write all data, regardless of Security Rules
-        var db = firebase.database();
-        var ref = db.ref("operation");
-        ref.once("value", function(snapshot) {
-          console.log(snapshot.val());
-        });
-
         ref.push({data: Base64.encode(data), started: x, cpmpleted: y, precessedIn: timeReq});
         reply(data).header('x-response-time', timeReq)
       }
@@ -118,5 +106,15 @@ server.start((err) => {
   if (err) {
       throw err;
   }
+  // Initialize the app with a service account, granting admin privileges
+  firebase.initializeApp({
+    serviceAccount: JSON.parse(process.env.SERVICE_ACCOUNT,
+    databaseURL: "https://so-bot.firebaseio.com"
+  });
+
+  // As an admin, the app has access to read and write all data, regardless of Security Rules
+  db = firebase.database();
+  ref = db.ref("operation");
+
   console.log('Server running at:', server.info.uri);
 });
