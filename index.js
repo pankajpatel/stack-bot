@@ -108,7 +108,7 @@ server.start((err) => {
   }
   // Initialize the app with a service account, granting admin privileges
   firebase.initializeApp({
-    serviceAccount: JSON.parse(process.env.SERVICE_ACCOUNT,
+    serviceAccount: JSON.parse(process.env.SERVICE_ACCOUNT),
     databaseURL: "https://so-bot.firebaseio.com"
   });
 
