@@ -24,7 +24,7 @@
   "homepage": "https://github.com/pankajpatel/stack-bot#readme",
   "dependencies": {
     "boom": "^7.0.0",
-    "firebase": "^3.5.3",
+    "firebase": "^9.0.0",
     "hapi": "^18.0.0",
     "inert": "^5.0.0",
     "js-base64": "^3.0.0",
