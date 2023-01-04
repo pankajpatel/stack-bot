@@ -27,7 +27,7 @@
     "firebase": "^3.5.3",
     "hapi": "^15.2.0",
     "inert": "^4.0.2",
-    "js-base64": "^2.1.9",
+    "js-base64": "^3.0.0",
     "node-schedule": "^2.0.0",
     "vision": "^4.1.0"
   }
