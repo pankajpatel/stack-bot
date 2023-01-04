@@ -25,7 +25,7 @@
   "dependencies": {
     "boom": "^4.2.0",
     "firebase": "^3.5.3",
-    "hapi": "^15.2.0",
+    "hapi": "^16.0.0",
     "inert": "^4.0.2",
     "js-base64": "^2.1.9",
     "node-schedule": "^2.0.0",
